@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="myinput" onkeyup="info.innerHTML" ><br>
+    <button onclick = "doConvert()">convert</button>
+    <div id="info"></div>
+    <script>
+        const myinput = document.querySelector("#myinput");
+        const info = document.querySelector("#info");
+
+        function doConvert() {
+            let v = parseInt(myinput.value);
+            if (0>v && v>100) {
+
+                if (v >= 90) {
+                    info.innerHTML = "A";
+                } else if (v >= 80) {
+                    info.innerHTML = "B";
+                } else if (v >= 70) {
+                    info.innerHTML = "C";
+                } else if (v >= 60) {
+                    info.innerHTML = "D";
+                } else {
+                    info.innerHTML = "F";
+                }
+            }else{
+                info.innerHTML = "超出範圍";
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

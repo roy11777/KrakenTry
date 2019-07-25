@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        background-color: rgb(135, 187, 221);
+
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 7, 7);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+
+    }
+</style>
+
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        let b, i, k, n=1;
+        for (k = 0; k < 6; k += 1) {
+            for (i = 0; i < 10; i++, n++) {
+                b = document.createElement("div")
+                // 在document裡面加入一個名稱為div的元素，須根據所需的正確標籤命名
+                b.innerHTML = n;
+                // 因為let有給初始值所以從1一開始上去
+                b.className = "ball";
+                // 將b套用ball的class
+                b.style.left = i*50 + "px";
+                // 將b的style調整LEFT
+                b.style.top = k*60 + "px";
+                
+                rect.appendChild(b);
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

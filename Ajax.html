@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 變更網頁內容不用刷新頁面  -->
+</head>
+
+<body>
+    <div id="info"></div>
+    <button onclick="doAjax()">123</button>
+    <input type="text">
+    <script>
+        // 使用一個大的FUNCTION包
+        function doAjax() {
+            var xhr = new XMLHttpRequest()
+            // xhr = xmlhttprequest
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("info").innerHTML = this.responseText;
+                }
+                // this指的是DOAJXFUNTION裡面的xhr
+            }
+            xhr.open("GET", "ajax.txt", true); //第三個參數有async
+            // 取得AJXTXT2檔案，TRUE為代表非同步，可同時執行其他動作
+            xhr.send();
+            // 塞進INFO的DIV裡
+        }
+    </script>
+</body>
+
+</html>

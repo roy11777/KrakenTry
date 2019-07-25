@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        background-color: rgb(135, 187, 221);
+ 
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 7, 7);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+
+    }
+    span.red{
+        color: red;
+    }
+</style>
+
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        const ar = [1, 3, 4, 8, 12, 24];
+
+        let br = ar.filter(function (val) {
+            return val % 2 === 0;
+            // 過濾除2整除，也就是偶數並回傳
+        });
+        rect.innerHTML += br.toString() + "<br>";
+
+        let cr = ar.map(function (val) {
+            // 將CR透過MAP裡的算式計算回傳
+            return val * val;
+        });
+        rect.innerHTML += cr.toString() + "<br>";
+        let dr = ar.map(function (val) {
+           var className = val%2 ? "" : "red";
+
+            return `<span class="${className}">${val} </span>` ;
+        });
+        rect.innerHTML += dr.toString() + "<br>";
+
+    </script>
+
+</body>
+
+</html>

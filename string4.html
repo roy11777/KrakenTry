@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="info"></div>
+
+<script>
+    const info = document.querySelector("#info");
+    const str = `土耳其裔中鋒坎特（Enes Kanter）
+    本季在紐約尼克陣中逐漸被冷落，在上場時間越來越少的情
+    況下，坎特也向球團要求交易`;
+    // const  str ="土耳其裔中鋒坎特（Enes Kanter）本季在" +
+    //     "紐約尼克陣中逐漸被冷落，在上場時間越來越少的情況下，坎特也" +
+    //     "向球團要求交易"
+    //     用一班雙引號如果按ENTER換行會自動幫忙新增+號
+
+    let name = "bill";
+
+    info.innerHTML += str + "<br>";
+    info.innerHTML = `str + ${name}` + "<br>";
+
+
+</script>
+</body>
+</html>

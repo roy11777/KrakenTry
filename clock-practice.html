@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background-color: #b0e9ff;
+        }
+
+        .hand1,
+        .hand2,
+        .hand3,
+        .hand4 {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+            /* 要先把區塊定位在中間，到時候旋轉就會以中心旋轉
+             */
+        }
+
+        /*         模組化
+        .hand,{
+            position: absolute;
+            left: 300px;
+            top: 300px;
+            要先把區塊定位在中間，到時候旋轉就會以中心旋轉
+            
+        } */
+
+        .sec-hand {
+            position: absolute;
+            width: 2px;
+            height: 280px;
+            /* background-image: url("images/earth.png");
+            background-size: cover; */
+            width: 2px;
+            height: 280px;
+            background-color: #ff2f27;
+            text-align: center;
+            top: -280px;
+            left: -1px;
+        }
+
+        .hr-hand {
+            position: absolute;
+            width: 8px;
+            height: 70px;
+            background-color: #79e45e;
+            color: white;
+            text-align: center;
+            top: -70px;
+            left: -1px;
+        }
+
+        .min-hand {
+            position: absolute;
+            width: 5px;
+            height: 140px;
+            background-color: #372cd3;
+            color: white;
+            text-align: center;
+            top: -140px;
+            left: -1px;
+        }
+
+        .min-click1 {
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            top: -280px;
+            left: -1px;
+        }
+
+        .min-click2 {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            top: -280px;
+            left: -1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect">
+        <div class="hand1">
+            <div class="sec-hand"></div>
+        </div>
+        <div class="hand2">
+            <div class="hr-hand"></div>
+        </div>
+        <div class="hand3">
+            <div class="min-hand"></div>
+        </div>
+
+
+    </div>
+
+    <!-- 模組化
+    <div id="rect">
+        <div class="hand">
+            <div class="sec-hand"></div>
+        </div>
+        <div class="hand">
+            <div class="hr-hand"></div>
+        </div>
+        <div class="hand">
+            <div class="min-hand"></div>
+        </div>
+    </div> -->
+
+    <script>
+
+        const rect = document.querySelector("#rect")
+        const hand1 = document.querySelector(".hand1")
+        const hand2 = document.querySelector(".hand2")
+        const hand3 = document.querySelector(".hand3")
+
+        // 可用模組化去選擇hand[0],hand[1],hand[2]
+        var i, b, c, hand4;
+        for (i = 0; i < 60; i++) {
+
+            c = document.createElement("div")
+            c.className = "hand4"
+            c.style.transform = `rotate(${i * 6}deg)`;
+            rect.appendChild(c);
+            if (i % 5 === 0) {
+                // 五能除盡就用長一點的刻度
+                b = document.createElement("div")
+                b.className = "min-click1"
+                c.appendChild(b);
+            }else{
+                b = document.createElement("div")
+                b.className = "min-click2"
+                c.appendChild(b);
+                // 記得指向c而不是hand4,hand4只是個CLASS
+            }
+
+
+        }
+
+
+
+        const run = function () {
+            var msec = new Date().getMilliseconds();
+            var sec = new Date().getSeconds();
+            var hr = new Date().getHours();
+            var min = new Date().getMinutes();
+            hand1.style.transform = `rotate(${sec * 6 + msec * 0.006}deg)`;
+            hand2.style.transform = `rotate(${hr * 30 + min * 0.5}deg)`;
+            hand3.style.transform = `rotate(${min * 6 + sec * 0.1}deg)`;
+            setTimeout(run, 1000)
+            // 如果要讓秒針看起來平順移動要把刷新慮改低
+
+            rect.style.backgroundColor = `hsl(${sec * 6 + msec * 0.006},100%,50%)`;
+        }
+        run()
+
+
+// 模組化
+        // const hands = document.querySelectorAll("#rect>.hand")
+        // const s = hands[0];
+        // const h = hands[1];
+        // const m = hands[2];
+
+
+
+        // const run = function () {
+        //     var sec = new Date().getSeconds();
+        //     var hr = new Date().getHours();
+        //     var min = new Date().getMinutes();
+        //     s.style.transform = `rotate(${sec * 6}deg)`;
+        //     h.style.transform = `rotate(${hr * 30}deg)`;
+        //     m.style.transform = `rotate(${min * 6}deg)`;
+        //     setTimeout(run, 1000)
+        // }
+        // run()
+    </script>
+</body>
+
+</html>

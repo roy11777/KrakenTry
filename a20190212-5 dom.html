@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+ <div id="topic"></div>
+ <div class="class">aa</div>
+ <div class="class">bb</div>
+ <div class="class">cc</div>
+    <script>
+        var a = 10;
+        var b =a;
+        console.log(a);
+        //只要是NUMEBER.BOOOLEAN.STRING都是基本類型
+
+        var ee =document.getElementById("topic");
+        var el = ee;
+        ee.innerHTML =a;
+        //其餘宣告為參照類型
+
+        document.getElementsByClassName("class")[1].innerHTML = "3210";
+        //將第二個CLASS改成321
+        document.getElementsByClassName("class")[2].innerHTML = "abc";
+        document.getElementsByClassName("class")[0].innerHTML = "GGc";
+
+    </script>
+
+
+
+
+</body>
+</html>
+

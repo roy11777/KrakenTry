@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 990px;
+        height: 880px;
+        background-color: rgb(218, 218, 218);
+
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 7, 7);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        
+    }
+</style>
+
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        let b, i, j, n = 1;
+        for (j = 0; j < 15; j += 1) {
+            for (i = 0; i < 20; i += 1, n++) {
+                // 讓n從1開始到到300，用色輪的方式漸進變色
+                let k = j*i*1,
+
+                b = document.createElement("div");
+                // 在document裡面加入一個名稱為div的元素，須根據所需的正確標籤命名
+                // b.innerHTML = i+1;
+                b.className = "ball";
+                // 將b套用ball的class
+                b.style.left = i*50 + "px";
+                // 將b的style調整LEFT
+                b.style.top = j*60 +"px";
+                // 將b套入ball的Classname
+                // b.style.backgroundColor = `rgb(${k}, 50%, 40% )`;
+                // RGB用法
+                b.style.backgroundColor = `hsl(${n}, 50%, 40% )`;
+
+                rect.appendChild(b);
+            }
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

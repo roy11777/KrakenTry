@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        background-color: rgb(135, 187, 221);
+ 
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 7, 7);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+
+    }
+    span.red{
+        color: red;
+    }
+</style>
+
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        var func2 = function(n){
+            return n*n;
+        }
+        // 此種命名方式必須要放在函式前
+        rect.innerHTML += func2(5) + "<br>";
+        rect.innerHTML += func(7) + "<br>";
+        rect.innerHTML += func() + "<br>";
+        // 假設沒有給定值，會以預設的n=10回傳
+        function func(n=10){
+            return n*n*6;
+        }
+        
+        // 直接使用FUNCTION則順序沒有關係都可顯示
+    </script>
+
+</body>
+
+</html>

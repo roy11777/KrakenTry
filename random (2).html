@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #b0e9ff;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #ff2f27;
+            border-radius: 50%;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        let b, i, j, n = 1, balls = [];
+        var a;
+
+        const randomColor = () => {
+            const zero = '000000';
+            let c = Math.floor(Math.random() * 256 * 256 * 256).toString(16);
+            // 將亂數出來的直轉16進位
+            return '#' + zero.slice(0, 6 - c.length) + c;
+            // 補足亂數出來未滿6位數的值
+            // #000456
+        }
+
+        for (i = 0; i < 15; i++) {
+            let size
+            b = document.createElement("div");
+            size = 10 + Math.floor(Math.random() * 31);
+            b.className = "ball";
+            b.style.left = Math.floor(Math.random() * 760) + "px";
+            b.style.bottom = Math.floor(Math.random() * 560) + "px";
+            b.style.width = size + "px";
+            b.style.height = size + "px";
+            // b.style.backgroundColor = `hsl(${n * 20}, 50%, 40% )`;
+            b.style.backgroundColor = randomColor();
+            rect.appendChild(b);
+            balls.push(b);
+            // 將生成的球PUSH進去BALLS陣列
+        }
+
+        // function(){}
+        // // 古典寫法
+
+        // var func = function () { }
+        // 把FUNCTION藏在變數裡面
+
+        // var func = () => {
+        //     for (i = 0; i < 15 ; i++ ) {
+        //         let ballBottom = document.querySelectorAll(".ball")[i].style.bottom;
+        //         // 用ALL先選全部再設索引值
+        //         console.log(parseInt(ballBottom))
+        //         if (parseInt(ballBottom) > 0) {
+        //             console.log("ins: " + ballBottom)
+        //             // ballBottom = 0;
+        //             // 這不是改變原始值
+
+        //             // document.querySelectorAll(".ball")[i].style.bottom = (parseInt(ballBottom) * j) / 15 + "px";
+        //             var x;
+        //             x = parseInt(ballBottom)-1;
+        //             document.querySelectorAll(".ball")[i].style.bottom = 0 +"px"
+
+
+        //         }
+        //     }
+        //     setTimeout(func, 30)
+        // }
+
+
+        // func();
+        const func1 = () => {
+            for (let i = 0; i < balls.length; i++) {
+                let el = balls[i];
+                console.log(el);
+                // 先在全域設定BALLS並將之前生成的B PUSH進BALLS的陣列，再從這裡抓
+                let y = parseInt(el.style.bottom)
+
+                console.log(y);
+                let x = parseInt(el.style.left)
+                console.log(x);
+                if (y > 560, x > 800) {
+                    y = y - 560;
+                    x = x - 800
+                }
+                // 讓球飄到上面後再重新從下往上飄
+
+
+                // el.style.bottom = y + Math.floor(Math.random() * 5) + "px"
+                // 上下飄
+                el.style.left = x + Math.floor(Math.random() * 5) + "px"
+                // 左右飄
+
+
+            }
+            setTimeout(func1, 30)
+        }
+        // func1()
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

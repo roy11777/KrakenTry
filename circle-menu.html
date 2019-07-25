@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #b0e9ff;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #ff2f27;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 40px;
+            transition: 1s;
+
+        }
+
+        .bigball {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #2c47ff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 80px;
+            color: white;
+            border: 1px solid black;
+            left: 360px;
+            top: 260px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect">
+        <div class="bigball" onclick="openmenu()"> </div>
+        <!-- 命名要小心不要用到OPEN，為WINDOW原生FUNCTION -->
+    </div>
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        const bigball = document.querySelector(".bigball")
+        let b, i, x, y, ballNumber = 12, balls = []
+        const ang = Math.PI * 2 / 12
+
+        let isopen = false;
+
+        // const openemenu = () => {
+        //     isopen = !isopen;
+        //     // 讓TRUE FALSE互換
+        //     console.log(isopen)
+        // }
+
+        for (i = 0; i < ballNumber; i++) {
+
+            b = document.createElement("div");
+            b.className = "ball";
+            b.innerHTML = i;
+            x = 400 - 20 + Math.cos(ang * i - Math.PI / 3) * 200
+            y = 300 - 20 + Math.sin(ang * i - Math.PI / 3) * 200
+            // b.endbottom = x;
+            // b.endleft = y;
+            b.setAttribute('data-endX', parseInt(x));
+            // 將逗號後面值設定進data-endX
+            b.setAttribute('data-endY', parseInt(y));
+            b.setAttribute('data-beginX', '380');
+            b.setAttribute('data-beginY', '280');
+            b.style.left = "380px";
+            b.style.bottom = "280px";
+
+            balls.push(b);
+            rect.appendChild(b);
+
+        }
+        rect.appendChild(bigball);
+        // 放在這可將大籃球排在最上面
+
+
+        // balls.forEach(function (el, ind) {
+        //     setTimeout(function () {
+        //         el.style.left = el.endleft + 200 + "px"
+        //         el.style.bottom = el.endbottom - 100 + "px"
+
+
+        //     }, ind * 200)
+        // });
+
+        // rect.appendChild(bigball);
+        // 整段都是自動顯示球的FUNCTION
+
+        const openmenu = () => {
+            let tx, ty;
+
+            isopen = !isopen;
+
+            if (isopen) {
+                balls.forEach(function (el, ind) {
+                    setTimeout(function () {
+                        el.style.left = el.getAttribute('data-endX') + 'px';
+
+                        el.style.top = el.getAttribute('data-endY') + 'px';
+                    }, ind * 100);
+                });
+            } else {
+                balls.forEach(function (el, ind) {
+                    setTimeout(function () {
+                        el.style.left = el.getAttribute('data-beginX') + 'px';
+                        el.style.top = el.getAttribute('data-beginY') + 'px';
+                    }, ind * 100);
+                });
+            }
+
+            console.log(isopen);
+        };
+
+
+        const list = (event) => {
+            alert(i);
+        }
+        ball.addEventListener("click", list)
+
+    </script>
+</body>
+
+</html>

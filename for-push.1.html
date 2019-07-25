@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        background-color: rgb(135, 187, 221);
+
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 7, 7);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+
+    }
+</style>
+
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+       const ar = [];
+        
+        
+        for (var i = 0; i < 49; i++) {
+            ar.push(i);
+            // 將AR內從1塞到49
+
+            rect.innerHTML = ar +"<br>";
+            // 顯示排序
+            
+            rect.innerHTML +=  ar.reverse() + "<br>";
+            // 將排序顛倒
+            rect.innerHTML +=  ar.sort() + "<br>";
+            // 按照字首排序
+        }
+
+        
+
+    </script>
+
+</body>
+
+</html>

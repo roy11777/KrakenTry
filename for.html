@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script>
+        "use strict"
+        // const info = document.querySelector("#info");
+        // // let i;
+        // // 如不先宣告，在USE STRICT的條件下會有問題提示未宣告
+        // for (i = 1; i < 10; i++) {
+
+        //     info.innerHTML += i + "<br>";
+        // }
+
+
+        for (var i = 1; i < 10; i++) {
+
+            info.innerHTML += i + "<br>";
+        }
+        info.innerHTML += i + "---" + "<br>";
+
+        for (let k = 1; k < 10; k++) {
+
+            info.innerHTML += k + "<br>";
+        }
+        // info.innerHTML += k + "<br>";
+        // 這段K不會顯示因為用LET，LET有區域性
+
+        for (var a = 2; a <= 30; a += 2) {
+            info.innerHTML += a + "<br>";
+        }
+        info.innerHTML += a + "---" + "<br>";
+
+        for (var b = 10; b >= 1; b--) {
+            info.innerHTML += b + "<br>";
+        }
+        info.innerHTML += b + "---" + "<br>";
+        for (var b = 0; b < 10; b += 1) {
+            info.innerHTML += (10 - b) + "<br>";
+        }
+        info.innerHTML += b + "---" + "<br>";
+        // 與上一個結論相同   
+
+        for (var c = 57; c <= 114; c += 3) {
+            info.innerHTML += c + "<br>";
+        }
+        info.innerHTML += c + "---" + "<br>";
+
+        for (var e = 65; e < 122; e += 1) {
+            info.innerHTML += String.fromCharCode(e) + "<br>";
+            // 將字碼轉字元
+        }
+
+
+    </script>
+
+</body>
+
+</html>

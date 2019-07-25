@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+<form name="form" action="" onsubmit="func(); return false">
+    <!--onsubmit為在輸入後無法提交-->
+    <!--func()為定義一個函數-->
+    <label for="age">age:</label>
+    <input type="text" name="age" id="age"><br>
+    <label for="gender">gender:</label>
+    <select name="gender" id="gender">
+        <option value="">請選擇</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+
+    </select><br>
+    <input type="submit">
+
+</form>
+
+    <div id="info"></div>
+
+    <script>
+    let info = document.querySelector("#info");
+
+        function func(){
+            let age = document.form.age.value;
+            let gender = document.form.gender.value;
+            // 根據ID去選取VALUE
+
+            if (age >=18 && gender==="女"){
+                info.innerHTML = "<h2>welcome</h2>"
+                // 出來\將INFO以HTML方式顯示出來
+            }else {
+                info.innerHTML = "<h2>goodbye</h2>"
+            }
+
+            if (age >=18 && gender==="男"){
+                info.innerHTML = "<h2>welcome</h2>"
+                // 出來\將INFO以HTML方式顯示出來
+            }else {
+                info.innerHTML = "<h2>goodbye</h2>"
+            }
+
+
+
+    }
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
+

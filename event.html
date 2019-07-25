@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #b0e9ff;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #ff2f27;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 40px;
+            transition: 1s;
+
+        }
+
+        .bigball {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #2c47ff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 80px;
+            color: white;
+            border: 1px solid black;
+            left: 360px;
+            top: 260px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>hello</button>
+    <div id="rect">
+        <div class="bigball" onclick="openmenu()"> </div>
+    </div>
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        const bigball = document.querySelector(".bigball")
+        const btn = document.querySelector("button")
+
+        function openmenu() {
+            console.log(1)
+        }
+
+        bigball.onclick = function () {
+            console.log(2)
+        }
+
+        bigball.addEventListener("click", function () {
+            console.log(3)
+        })
+        // 較常用的事件處理器
+
+
+
+
+        const list = (event) => {
+            console.log(event)
+        }
+        bigball.addEventListener('click', list);
+        // 執行CLICK這個名稱的事件
+        btn.addEventListener('click', list);
+
+    </script>
+</body>
+
+</html>

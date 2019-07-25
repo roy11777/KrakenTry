@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: #b0e9ff;
+    }
+</style>
+
+<body>
+
+    <div id="rect"></div>
+
+    </div>
+
+
+
+
+    <script>
+        const rect = document.querySelector("#rect")
+        const func1 = () => {
+            console.log("Hello!")
+        }
+        rect.addEventListener("click", func1)
+
+
+        for (i = 0; i < 10; i++) {
+            rect.addEventListener("click", func1)
+            // 用FUNC方式呼叫只會建立一次監聽器
+            rect.addEventListener("click", event => {
+                console.log("Hello!")
+            })
+            // 這種方式會建立10次監聽器
+        }
+
+
+    </script>
+</body>
+
+</html>

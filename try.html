@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var str = '{"att":123}'
+        // JSON格是要用單引號包
+
+
+        try {
+            var str = JSON.parse(str)
+            // 偵測STR是否為合法JSON格式，如不合法就會往下執行CATCH，如果合法就不會。
+        } catch(ex){
+            console.log(ex)
+        }
+
+
+
+    </script>
+</body>
+
+</html>

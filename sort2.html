@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        background-color: rgb(135, 187, 221);
+
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 7, 7);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+
+    }
+</style>
+
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+       const ar = [
+           {name:"David" , age: 20, gender:"male"},
+           {name:"Pter" , age: 27, gender:"male"},
+           {name:"Bill" , age: 25, gender:"male"},
+           {name:"Catr" , age: 33, gender:"male"},
+           {name:"Ki" , age: 1, gender:"male"}
+       ];
+        
+   
+    //    ar.sort(function(a,b){
+    //        return a.age -b.age;
+    //    }
+    //    )  
+    // //    根據年齡排序
+       ar.sort(function(a,b){
+           return a.name >b.name ? 1: -1;
+        //    如果1 -1對調就反過來
+        // 三元運算若A>B為TRUE回傳1，否則-1
+       }
+       ) 
+    //    根據姓名排序
+       console.log(ar)
+
+    </script>
+
+</body>
+
+</html>

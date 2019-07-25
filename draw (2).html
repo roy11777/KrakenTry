@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #b0e9ff;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #ff2f27;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 40px;
+            transition: 1s;
+            pointer-events: none;
+            /* 不要感應到滑鼠 */
+        }
+
+        .bigball {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #2c47ff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 80px;
+            color: white;
+            border: 1px solid black;
+            left: 360px;
+            top: 260px;
+        }
+
+        #info {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button>hello</button>
+    <div id="info"></div>
+    <div id="rect">    </div>
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        const bigBall = document.querySelector(".bigball")
+        const btn = document.querySelector("button")
+        const ball = document.querySelector('.ball');
+
+
+        rect.addEventListener("mousemove", function (event) {
+            // 滑鼠移動感應
+            const b = document.createElement("div")
+            // 依據以下滑鼠移動的XY位置建立DIV
+            b.className = "ball"
+            b.style.left = event.offsetX + "px";
+            b.style.top = event.offsetY + "px"
+            rect.appendChild(b)
+
+        })
+    </script>
+</body>
+
+</html>

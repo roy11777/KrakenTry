@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 1500px;
+        height: 800px;
+        background-color: rgb(135, 187, 221);
+
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 7, 7);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+
+    }
+</style>
+
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        let ar = [1, 2, 3, 4, 5, 6];
+
+        var fun = function (ar) {
+            ar.pop()
+            return ar;
+        }
+        rect.innerHTML += ar + "<br>"
+        let k = fun(ar)
+        rect.innerHTML += ar.toString() + "<br>"
+        rect.innerHTML += k.toString() + "<br>"
+
+        ar[0] = 100;
+
+        rect.innerHTML += ar.toString() + "<br>"
+        rect.innerHTML += k.toString() + "<br>"
+        
+        // var fun = function (ar) {
+        //     let ar2 = JSON.parse(JSON.stringify(ar))
+        //     ar2.pop()
+        //     return ar2;
+        // }
+        // rect.innerHTML += ar + "<br>"
+        // let k = fun(ar)
+        // rect.innerHTML += ar.toString() + "<br>"
+        // rect.innerHTML += k.toString() + "<br>"
+
+        // ar[0] = 100;
+
+        // rect.innerHTML += ar.toString() + "<br>"
+        // rect.innerHTML += k.toString() + "<br>"
+    </script>
+
+</body>
+
+</html>

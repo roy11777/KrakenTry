@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="myinput" onkeyup="info.innerHTML ='' " ><br>
+    <button onclick = "doConvert()">convert</button>
+    <div id="info"></div>
+    <script>
+        const myinput = document.querySelector("#myinput");
+        const info = document.querySelector("#info");
+
+        function doConvert() {
+            let v = parseInt(myinput.value);
+            let vv = parseInt(v/10);
+
+            switch(vv) {
+                case 10 :
+                case 9 :
+                    info.innerHTML = "A";
+                    break;
+                    // 斷點，否則會繼續往下執行
+                case 8 :
+                    info.innerHTML = "B";
+                    break;
+                case 7 :
+                    info.innerHTML = "C";
+                    break;
+                case 6 :
+                    info.innerHTML = "D";
+                    break;
+                default:
+                    info.innerHTML = "F";
+                    // 不用斷點因為已經最尾端了
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+
+</style>
+
+<body>
+    <!-- 將整個SVG標籤放入HTML -->
+    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 600 400" style="enable-background:new 0 0 600 400;" xml:space="preserve">
+        <style type="text/css">
+            .st0 {
+                fill: #0D00A2;
+            }
+        </style>
+        <g>
+            <polygon class="st0" points="95.4,117.3 72.7,96.1 103.3,90.9 116.4,62.7 130.8,90.2 161.7,94 139.9,116.2 145.9,146.7 
+       118.1,132.9 90.9,148 	" />
+            <path d="M116.4,63.8l13.8,26.4l0.2,0.5l0.5,0.1l29.6,3.6l-20.8,21.3l-0.4,0.4l0.1,0.5l5.7,29.2l-26.7-13.2l-0.5-0.2l-0.5,0.3
+       l-26,14.5l4.3-29.5l0.1-0.5l-0.4-0.4L73.7,96.4l29.4-5l0.5-0.1l0.2-0.5L116.4,63.8 M116.4,61.6L103,90.5l-31.4,5.3l23.3,21.7
+       l-4.6,31.5l27.8-15.5l28.5,14.1l-6.1-31.2l22.3-22.8l-31.6-3.8L116.4,61.6L116.4,61.6z" />
+        </g>
+    </svg>
+
+    </div>
+
+
+
+
+    <script>
+
+        const st0 = document.querySelector(".st0");
+
+        st0.addEventListener("mouseover", event =>{
+            // 滑鼠移到上面時
+            console.log(event.type)
+            st0.style.fill = "#ff0000"
+        } )
+        st0.addEventListener("mouseout", event =>{
+            // 滑鼠離開時
+            console.log(event.type)
+            st0.style.fill = "#ffffff"
+        } )
+
+    </script>
+</body>
+
+</html>

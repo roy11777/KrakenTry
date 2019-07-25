@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        background-color: rgb(135, 187, 221);
+
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 7, 7);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+
+    }
+</style>
+
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        var a = 10;
+
+        var func = function () {
+            a = 100;
+            // 裡面有A先找裡面的A
+        }
+        a = 10;
+        var func1 = function () {
+            var a = 100;
+            // 此處A只會影響裡面，如果抓外面的A也是顯示10
+        }
+        a = 10;
+        var func2 = function (a) {
+            a = 100000;
+            return a;
+        }
+
+
+        func();
+        rect.innerHTML += a + "<br>"
+
+        a=10;
+        func1();
+        rect.innerHTML += a + "<br>"
+
+        a=10;
+        func2();
+        rect.innerHTML += a + func2(a) + "<br>"
+
+    </script>
+
+</body>
+
+</html>

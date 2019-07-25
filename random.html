@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #b0e9ff;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #ff2f27;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        "use strict"
+        const rect = document.querySelector("#rect");
+        let b, i, j, n = 1;
+        var a;
+
+
+        for (i = 1; i < 15; i++) {
+            let size
+            b = document.createElement("div");
+            size = 10 + Math.floor(Math.random() * 31);
+            b.className = "ball";
+            b.style.left = Math.floor(Math.random() * 760) + "px";
+            b.style.bottom = Math.floor(Math.random() * 560) + "px";
+            b.style.width = size + "px";
+            b.style.height = size + "px";
+            b.style.backgroundColor = `hsl(${n * 20}, 50%, 40% )`;
+            rect.appendChild(b);
+        }
+
+        // function(){}
+        // // 古典寫法
+
+        // var func = function () { }
+        // 把FUNCTION藏在變數裡面
+        
+        var func = () => {
+            for (i = 0; i < 15 ; i++ ) {
+                let ballBottom = document.querySelectorAll(".ball")[i].style.bottom;
+                // 用ALL先選全部再設索引值
+                console.log(parseInt(ballBottom))
+                if (parseInt(ballBottom) > 0) {
+                    console.log("ins: " + ballBottom)
+                    // ballBottom = 0;
+                    // 這不是改變原始值
+
+                    // document.querySelectorAll(".ball")[i].style.bottom = (parseInt(ballBottom) * j) / 15 + "px";
+                    var x;
+                    x = parseInt(ballBottom)-1;
+                    document.querySelectorAll(".ball")[i].style.bottom = x +"px"
+
+
+                }
+            }
+            setTimeout(func, 30)
+        }
+
+
+        func();
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
